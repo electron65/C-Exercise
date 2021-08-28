@@ -66,13 +66,14 @@ for(i=0; i<limit; i++){
 		}
 		// when a value is a space
 		if(array[i] == ' '){
-			flag++;
+			flag++;// indication of a space
 			temp[j] = array[i];
 			j++;
 		}
 		//when a value is a space and the previous value was also an space
 		if(array[i] == ' ' && flag == '1'){
 		flag--;
+		continue;
 		}
 
 	}
@@ -83,8 +84,13 @@ printf("\n--------------------------------\n");
 printf("  <One space array>");
 printf("\n--------------------------------\n");
 for(i=0; i<size; i++)// test array values
+printf("%c", temp[i]);
+
+
+printf("\n<Test Array>\n");
+for(i=0; i<size; i++)// test array values
 printf("temp[%d] = %c \n", i, temp[i]);
 
-free(array);
+free(array); //free memory
 	return 0;
 }
