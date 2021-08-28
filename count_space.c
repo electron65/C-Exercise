@@ -12,7 +12,6 @@ int main(int argc, char *argv[]) {
 
 int size = 0; // size of array.
 int i = 0;
-int j = 0;
 int tab = 0, space = 0, newl = 0;
 int limit = 0;
 //User enters size of array
@@ -57,6 +56,7 @@ printf("\n--------------------------------\n");
 printf("tabs = %d\nspace = %d\nnewline = %d", tab, space, newl);
 printf("\n--------------------------------\n");
 
+int j = 0;
 int flag = 0; // signal which indicates a space in an array
 int blankc = 0; //counts how many spaces are omitted in the copied array
 for(i=0; i<limit; i++){
@@ -65,25 +65,24 @@ for(i=0; i<limit; i++){
 			temp[j] = array[i];
 			j++;
 			printf("|Not a space|");
+			flag = 0;
 		}
 		// when a value is a space
 		else{
 			//when a value is a space and the previous value was also an space
 			if(flag == '1'){
-				flag--;
 				printf("|2nd 0|");
 				blankc++;
 				}	
 			else{
-				flag++;// indication of a space
+				// indication of a space
 				temp[j] = array[i];
 				j++;
 				printf("|1st space|");
 				}
 
-			}
-		
-		}
+			}		
+	}
 
 
 
