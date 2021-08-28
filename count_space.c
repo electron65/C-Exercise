@@ -12,6 +12,7 @@ int main(int argc, char *argv[]) {
 
 int size = 0; // size of array.
 int i = 0;
+int j = 0;
 int tab = 0, space = 0, newl = 0;
 int limit = 0;
 //User enters size of array
@@ -20,10 +21,13 @@ scanf("%d", &size);
 
 limit = sizeof(char)*size; // end of array
 
-char *array = (char*)malloc(sizeof(char)*size); //
+char *array = (char*)malloc(sizeof(char)*size); 
+char *temp = (char*)malloc(sizeof(char)*size); // copied array
 // user enters a sentence.
+printf("\n--------------------------------\n");
 printf("<To exit the program please enter \" ` \"!> \n");
-printf("Enter a sentence please.\n=>"); 
+printf("Enter a sentence please.");
+printf("\n--------------------------------\n");
 scanf(" %[^\`]s", array);
 
 // prints sentence
@@ -53,23 +57,33 @@ printf("\n--------------------------------\n");
 printf("tabs = %d\nspace = %d\nnewline = %d", tab, space, newl);
 printf("\n--------------------------------\n");
 
-/*
-//test for printing input result.
-for(i=0; i<size; i++)// test array values
-printf("array[%d] = %c \n", i, array[i]);
-*/
-int j = 0;
-// changes multiple spaces to one space
-for(i=0; i <limit-1; i++){
-	if(array[i] == ' ' && array[i+1] == ' ')
-	 for(j=i; j<limit-1; j++)
-	 array[j] = array[j+1];
-}
+int flag = 0; // signal which indicates a space in an array
+for(i=0; i<limit; i++){
+		// when the value is not a space
+		if(array[i] != ' '){ 
+			temp[j] = array[i];
+			j++;
+		}
+		// when a value is a space
+		if(array[i] == ' '){
+			flag++;
+			temp[j] = array[i];
+			j++;
+		}
+		//when a value is a space and the previous value was also an space
+		if(array[i] == ' ' && flag == '1'){
+		flag--;
+		}
 
-printf("\n\n  <Deleted more than two spaces>");
+	}
+
+
+
+printf("\n--------------------------------\n");
+printf("  <One space array>");
 printf("\n--------------------------------\n");
 for(i=0; i<size; i++)// test array values
-printf("array[%d] = %c \n", i, array[i]);
+printf("temp[%d] = %c \n", i, temp[i]);
 
 free(array);
 	return 0;
