@@ -91,11 +91,11 @@ printf("\n--------------------------------\n");
 for(i=0; i<size - blankc; i++)// test array values
 printf("%c", temp[i]);
 
-/*
+
 printf("\n<Test Array>\n");
 for(i=0; i<size; i++)// test array values
 printf("temp[%d] = %c \n", i, temp[i]);
-*/
+
 free(array); //free memory
 	return 0;
 }
