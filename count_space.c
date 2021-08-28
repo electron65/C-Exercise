@@ -73,25 +73,23 @@ for(i=0; i<limit; i++){
 			if(flag == '1'){
 				printf("|2nd 0|");
 				blankc++;
-				}	
+			}	
 			else{
 				// indication of a space
+				flag = 1;
 				temp[j] = array[i];
 				j++;
 				printf("|1st space|");
-				}
+			}
 
-			}		
-	}
-
-
+		}		
+}
 
 printf("\n--------------------------------\n");
 printf("  <One space array>");
 printf("\n--------------------------------\n");
 for(i=0; i<size; i++)// test array values
 printf("%c", temp[i]);
-
 
 printf("\n<Test Array>\n");
 for(i=0; i<size; i++)// test array values
