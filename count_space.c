@@ -84,7 +84,7 @@ for(i=0; i<limit; i++){
 
 		}		
 }
-
+printf("|%d|", blankc);
 printf("\n--------------------------------\n");
 printf("  <One space array>");
 printf("\n--------------------------------\n");
