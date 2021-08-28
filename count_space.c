@@ -52,31 +52,38 @@ printf("\n--------------------------------\n");
 printf("array[%d] = %c",limit - 1, array[limit - 1]);
 printf("\n--------------------------------\n");
 //show the counted results
-printf("\n\n  <Tabs,Space,New Line Count>");
+printf("\n  <Tabs,Space,New Line Count>");
 printf("\n--------------------------------\n");
 printf("tabs = %d\nspace = %d\nnewline = %d", tab, space, newl);
 printf("\n--------------------------------\n");
 
 int flag = 0; // signal which indicates a space in an array
+int blankc = 0; //counts how many spaces are omitted in the copied array
 for(i=0; i<limit; i++){
 		// when the value is not a space
 		if(array[i] != ' '){ 
 			temp[j] = array[i];
 			j++;
+			printf("|Not a space|");
 		}
 		// when a value is a space
-		if(array[i] == ' '){
-			flag++;// indication of a space
-			temp[j] = array[i];
-			j++;
-		}
-		//when a value is a space and the previous value was also an space
-		if(array[i] == ' ' && flag == '1'){
-		flag--;
-		continue;
-		}
+		else{
+			//when a value is a space and the previous value was also an space
+			if(flag == '1'){
+				flag--;
+				printf("|2nd 0|");
+				blankc++;
+				}	
+			else{
+				flag++;// indication of a space
+				temp[j] = array[i];
+				j++;
+				printf("|1st space|");
+				}
 
-	}
+			}
+		
+		}
 
 
 
